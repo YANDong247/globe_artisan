@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Globe Artisan | New Vision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --panel: #ffffff;
+      --panel-dark: #101114;
+      --panel-dark-text: #f5f5f7;
+      --line: rgba(0, 0, 0, 0.08);
+      --accent: #0071e3;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(245, 245, 247, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 48px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 0.92rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: #2b2b2f;
+      opacity: 0.9;
+    }
+
+    .grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 28px 16px 48px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel {
+      position: relative;
+      min-height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 28px;
+    }
+
+    .panel.dark {
+      background: linear-gradient(170deg, #111318, #0a0b0d);
+      color: var(--panel-dark-text);
+      border: none;
+    }
+
+    .panel-content {
+      text-align: center;
+      max-width: 460px;
+      z-index: 1;
+    }
+
+    .panel h2 {
+      font-size: clamp(1.8rem, 4.2vw, 2.6rem);
+      letter-spacing: -0.02em;
+    }
+
+    .panel p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .panel.dark p {
+      color: rgba(245, 245, 247, 0.75);
+    }
+
+    .panel .links {
+      margin-top: 14px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .panel.dark .links {
+      color: #65a9ff;
+    }
+
+    .glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(22px);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .glow.a {
+      top: -40px;
+      right: -40px;
+      background: #7dc7ff;
+    }
+
+    .footer {
+      text-align: center;
+      color: #7c7c83;
+      font-size: 0.85rem;
+      padding: 18px 12px 30px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        min-height: 360px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.86rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">G.A.</a>
+      <nav class="nav-links">
+        <a href="#">商店</a>
+        <a href="#">系列</a>
+        <a href="#">探索</a>
+        <a href="#">支持</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="grid">
+    <article class="panel dark">
+      <span class="glow a"></span>
+      <div class="panel-content">
+        <h2>橄榄核雕</h2>
+        <p>沉静黑调与高对比排版，强调主角本身。</p>
+        <div class="links">
+          <a href="#">了解更多 ></a>
+          <a href="#">购买 ></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel dark">
+      <span class="glow a"></span>
+      <div class="panel-content">
+        <h2>鼻烟珍壶</h2>
+        <p>清代盛行烟具，内画技艺名扬中外</p>
+        <div class="links">
+          <a href="product/snuffbottle/snuffbottle.html">了解更多 ></a>
+          <a href="#">购买 ></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel dark">
+      <span class="glow a"></span>
+      <div class="panel-content">
+        <h2>轩墨藏珍 03</h2>
+        <p>沉静黑调与高对比排版，强调主角本身。</p>
+        <div class="links">
+          <a href="#">了解更多 ></a>
+          <a href="#">购买 ></a>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    本页面为原创演示，风格参考苹果官网的信息架构与视觉节奏。
+  </footer>
+</body>
+</html>
