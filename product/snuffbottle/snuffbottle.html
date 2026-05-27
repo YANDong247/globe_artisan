@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Snuff Bottle Pro | Framework</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+	<style>
+		:root {
+			--bg: #f5f5f7;
+			--surface: #ffffff;
+			--surface-dark: #0f1115;
+			--text: #1d1d1f;
+			--text-muted: #6e6e73;
+			--text-dark: #f5f5f7;
+			--line: rgba(0, 0, 0, 0.08);
+			--accent: #0071e3;
+			--hero-grad: radial-gradient(circle at 75% 25%, #32415e 0%, #0d1324 44%, #080a0f 100%);
+			--shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+			--max: 1180px;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			min-height: 100%;
+			scroll-behavior: smooth;
+		}
+
+		body {
+			font-family: "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+			color: var(--text);
+			background: var(--bg);
+			line-height: 1.5;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.top-nav {
+			height: 44px;
+			border-bottom: 1px solid var(--line);
+			background: rgba(250, 250, 252, 0.88);
+			backdrop-filter: blur(10px);
+			position: sticky;
+			top: 0;
+			z-index: 100;
+		}
+
+		.nav-inner {
+			height: 100%;
+			max-width: var(--max);
+			margin: 0 auto;
+			padding: 0 18px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 0.9rem;
+		}
+
+		.brand {
+			font-weight: 800;
+			letter-spacing: 0.02em;
+		}
+
+		.sub-nav {
+			position: sticky;
+			top: 44px;
+			z-index: 90;
+			border-bottom: 1px solid var(--line);
+			background: rgba(255, 255, 255, 0.85);
+			backdrop-filter: blur(12px);
+		}
+
+		.sub-nav ul {
+			max-width: var(--max);
+			margin: 0 auto;
+			padding: 10px 18px;
+			list-style: none;
+			display: flex;
+			gap: 18px;
+			overflow-x: auto;
+			white-space: nowrap;
+			font-size: 0.9rem;
+			color: #3a3a3d;
+		}
+
+		.hero {
+			min-height: calc(100dvh - 88px);
+			background: var(--hero-grad);
+			color: var(--text-dark);
+			display: grid;
+			place-items: center;
+			padding: 48px 18px;
+			text-align: center;
+		}
+
+		.hero-wrap {
+			width: min(980px, 100%);
+		}
+
+		.hero-kicker {
+			color: #8cb9ff;
+			font-weight: 700;
+			margin-bottom: 12px;
+		}
+
+		.hero h1 {
+			font-size: clamp(2rem, 8vw, 5rem);
+			letter-spacing: -0.03em;
+			line-height: 1.06;
+		}
+
+		.hero p {
+			max-width: 720px;
+			margin: 14px auto 0;
+			color: rgba(245, 245, 247, 0.85);
+			font-size: clamp(1rem, 2.2vw, 1.35rem);
+		}
+
+		.hero-actions {
+			margin-top: 22px;
+			display: flex;
+			gap: 12px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 999px;
+			padding: 10px 18px;
+			font-size: 0.95rem;
+			font-weight: 700;
+		}
+
+		.btn-primary {
+			background: var(--accent);
+			color: #fff;
+		}
+
+		.btn-ghost {
+			border: 1px solid rgba(255, 255, 255, 0.32);
+			color: #d9e7ff;
+		}
+
+		.device-mock {
+			width: min(820px, 92vw);
+			height: clamp(180px, 30vw, 300px);
+			margin: 30px auto 0;
+			border-radius: 36px;
+			border: 1px solid rgba(255, 255, 255, 0.16);
+			background: linear-gradient(120deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+			box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.06), 0 24px 70px rgba(0, 0, 0, 0.45);
+		}
+
+		.section {
+			max-width: var(--max);
+			margin: 0 auto;
+			padding: 78px 18px;
+		}
+
+		.section-head {
+			margin-bottom: 28px;
+		}
+
+		.section-head p {
+			color: var(--accent);
+			font-weight: 700;
+			margin-bottom: 8px;
+		}
+
+		.section-head h2 {
+			font-size: clamp(1.6rem, 4vw, 3rem);
+			letter-spacing: -0.02em;
+		}
+
+		.feature-grid {
+			display: grid;
+			grid-template-columns: repeat(12, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		.h-scroll {
+			display: grid;
+			grid-auto-flow: column;
+			grid-auto-columns: clamp(300px, 40vw, 440px);
+			gap: 14px;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			padding-bottom: 8px;
+		}
+
+		.h-scroll::-webkit-scrollbar {
+			height: 8px;
+		}
+
+		.h-scroll::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.22);
+			border-radius: 999px;
+		}
+
+		.h-slide {
+			scroll-snap-align: start;
+			aspect-ratio: 4 / 6;
+			border-radius: 24px;
+			overflow: hidden;
+			position: relative;
+			background: #0f1115;
+			box-shadow: var(--shadow);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		.h-slide-media {
+			height: 100%;
+			width: 100%;
+			background-size: cover;
+			background-position: center;
+			filter: saturate(1.08) contrast(1.02);
+		}
+
+		.h-slide-media.s1 {
+			background-color: #111318;
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.16), rgba(8, 10, 15, 0.52)),
+				url("pic/八仙001.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
+		}
+
+		.h-slide-media.s2 {
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.2), rgba(8, 10, 15, 0.5)),
+				linear-gradient(120deg, #4f5467, #7f584a 55%, #1f2531);
+		}
+
+		.h-slide-media.s3 {
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.14), rgba(8, 10, 15, 0.52)),
+				linear-gradient(120deg, #3f5d52, #83695e 60%, #1d212d);
+		}
+
+		.h-slide-media.s4 {
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.16), rgba(8, 10, 15, 0.5)),
+				linear-gradient(120deg, #6b4e55, #2e3644 58%, #151924);
+		}
+
+		.h-slide-media.s5 {
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.14), rgba(8, 10, 15, 0.52)),
+				linear-gradient(120deg, #415a6a, #6d6550 60%, #18202c);
+		}
+
+		.h-slide-media.s6 {
+			background-image:
+				linear-gradient(150deg, rgba(8, 10, 15, 0.2), rgba(8, 10, 15, 0.54)),
+				linear-gradient(120deg, #5f6a47, #5a4558 58%, #171b26);
+		}
+
+		.h-slide-caption {
+			position: absolute;
+			left: 16px;
+			right: 16px;
+			bottom: 14px;
+			padding: 10px 12px;
+			border-radius: 14px;
+			background: rgba(10, 12, 16, 0.45);
+			backdrop-filter: blur(8px);
+			color: rgba(245, 245, 247, 0.95);
+			font-size: 0.92rem;
+			text-align: center;
+			line-height: 1.2;
+		}
+
+		.card {
+			border-radius: 24px;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			box-shadow: var(--shadow);
+			padding: 24px;
+			min-height: 240px;
+		}
+
+		.card h3 {
+			font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+			letter-spacing: -0.02em;
+		}
+
+		.card p {
+			color: var(--text-muted);
+			margin-top: 8px;
+		}
+
+		.card.dark {
+			background: var(--surface-dark);
+			border: none;
+			color: var(--text-dark);
+		}
+
+		.card.dark p {
+			color: rgba(245, 245, 247, 0.75);
+		}
+
+		.span-8 { grid-column: span 8; }
+		.span-4 { grid-column: span 4; }
+		.span-6 { grid-column: span 6; }
+
+		.specs {
+			background: #fff;
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+		}
+
+		.spec-table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 0.95rem;
+		}
+
+		.spec-table tr {
+			border-bottom: 1px solid var(--line);
+		}
+
+		.spec-table th,
+		.spec-table td {
+			text-align: left;
+			padding: 16px 10px;
+			vertical-align: top;
+		}
+
+		.spec-table th {
+			width: 34%;
+			color: #3a3a3d;
+			font-weight: 700;
+		}
+
+		.faq details {
+			border-bottom: 1px solid var(--line);
+			padding: 16px 0;
+		}
+
+		.faq summary {
+			cursor: pointer;
+			font-weight: 700;
+			list-style: none;
+		}
+
+		.faq summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.faq p {
+			margin-top: 8px;
+			color: var(--text-muted);
+			max-width: 840px;
+		}
+
+		.buy-band {
+			text-align: center;
+			border-radius: 28px;
+			background: #fff;
+			border: 1px solid var(--line);
+			box-shadow: var(--shadow);
+			padding: 40px 18px;
+		}
+
+		.buy-band h2 {
+			font-size: clamp(1.8rem, 4vw, 3.2rem);
+			letter-spacing: -0.03em;
+		}
+
+		.buy-band p {
+			margin-top: 8px;
+			color: var(--text-muted);
+		}
+
+		footer {
+			padding: 26px 18px 36px;
+			text-align: center;
+			color: #7c7c83;
+			font-size: 0.84rem;
+		}
+
+		@media (max-width: 900px) {
+			.span-8,
+			.span-6,
+			.span-4 {
+				grid-column: span 12;
+			}
+
+			.spec-table th,
+			.spec-table td {
+				display: block;
+				width: 100%;
+				padding: 10px;
+			}
+
+			.spec-table th {
+				padding-top: 16px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header class="top-nav">
+		<div class="nav-inner">
+			<a class="brand" href="../../index.html">Globe Artisan</a>
+			<a href="#buy">购买</a>
+		</div>
+	</header>
+
+	<nav class="sub-nav" aria-label="Section navigation">
+		<ul>
+			<li><a href="#overview">概览</a></li>
+			<li><a href="#design">设计</a></li>
+			<li><a href="#camera">影像</a></li>
+			<li><a href="#performance">性能</a></li>
+			<li><a href="#specs">参数</a></li>
+			<li><a href="#faq">问答</a></li>
+			<li><a href="#buy">选购</a></li>
+		</ul>
+	</nav>
+
+	<section class="hero" id="overview">
+		<div class="hero-wrap">
+			<p class="hero-kicker">Snuff Bottle Pro</p>
+			<h1>一眼入心的器物美学</h1>
+			<p>这是参考苹果产品页信息节奏搭建的框架页。你可以在此直接替换图片、文案和参数，快速进入正式设计阶段。</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#buy">立即选购</a>
+				<a class="btn btn-ghost" href="#design">了解设计</a>
+			</div>
+			<div class="device-mock" aria-hidden="true"></div>
+		</div>
+	</section>
+
+	<section class="section" id="design">
+		<div class="section-head">
+			<p>Design</p>
+			<h2>分区讲述产品价值</h2>
+		</div>
+		<div class="h-scroll" aria-label="横向图片展示">
+			<article class="h-slide">
+				<div class="h-slide-media s1"></div>
+				<p class="h-slide-caption">八仙过海</p>
+			</article>
+			<article class="h-slide">
+				<div class="h-slide-media s2"></div>
+				<p class="h-slide-caption">横划图 02 · 局部细节与工艺层次</p>
+			</article>
+			<article class="h-slide">
+				<div class="h-slide-media s3"></div>
+				<p class="h-slide-caption">横划图 03 · 手持比例与场景展示</p>
+			</article>
+			<article class="h-slide">
+				<div class="h-slide-media s4"></div>
+				<p class="h-slide-caption">横划图 04 · 纹理特写与明暗关系</p>
+			</article>
+			<article class="h-slide">
+				<div class="h-slide-media s5"></div>
+				<p class="h-slide-caption">横划图 05 · 侧面轮廓与比例表达</p>
+			</article>
+			<article class="h-slide">
+				<div class="h-slide-media s6"></div>
+				<p class="h-slide-caption">横划图 06 · 成套陈列与场景氛围</p>
+			</article>
+		</div>
+	</section>
+
+	<!-- <section class="section" id="camera">
+		<div class="section-head">
+			<p>Visual</p>
+			<h2>多卡片细分能力点</h2>
+		</div>
+		<div class="feature-grid">
+			<article class="card span-4">
+				<h3>细节近拍</h3>
+				<p>对应苹果页面里的功能点小节，可替换为核雕细节、纹理、落刀痕迹。</p>
+			</article>
+			<article class="card dark span-4">
+				<h3>色泽表现</h3>
+				<p>突出在不同光线下的颜色层次。</p>
+			</article>
+			<article class="card span-4">
+				<h3>手持比例</h3>
+				<p>展示真实尺寸观感，降低用户决策成本。</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section specs" id="specs">
+		<div class="section-head">
+			<p>Specs</p>
+			<h2>参数框架</h2>
+		</div>
+		<table class="spec-table">
+			<tr>
+				<th>名称</th>
+				<td>轩墨藏珍 01（示例）</td>
+			</tr>
+			<tr>
+				<th>尺寸</th>
+				<td>高 58 mm / 宽 26 mm / 重 42 g</td>
+			</tr>
+			<tr>
+				<th>材质</th>
+				<td>示例材质 A + 示例材质 B</td>
+			</tr>
+			<tr>
+				<th>工艺</th>
+				<td>手工雕刻、细磨抛光、封蜡保养</td>
+			</tr>
+			<tr>
+				<th>包装</th>
+				<td>收藏盒、证书、保养说明卡</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="section" id="performance">
+		<div class="section-head">
+			<p>Story</p>
+			<h2>延展叙事区</h2>
+		</div>
+		<div class="feature-grid">
+			<article class="card dark span-8">
+				<h3>品牌故事长段位</h3>
+				<p>这里可以放你最核心的一段品牌陈述，建议 90 到 140 字。</p>
+			</article>
+			<article class="card span-4">
+				<h3>保养建议</h3>
+				<p>避免暴晒，保持干燥，定期轻拭。</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section faq" id="faq">
+		<div class="section-head">
+			<p>FAQ</p>
+			<h2>常见问题框架</h2>
+		</div>
+		<details>
+			<summary>是否支持定制？</summary>
+			<p>这里填写你的真实定制流程、周期和限制条件。</p>
+		</details>
+		<details>
+			<summary>发货与售后规则？</summary>
+			<p>这里填写发货时间、物流范围、签收与售后说明。</p>
+		</details>
+		<details>
+			<summary>如何判断是否适合收藏？</summary>
+			<p>这里填写选购建议，比如题材、尺寸、预算和个人偏好。</p>
+		</details>
+	</section> -->
+
+	<section class="section" id="buy">
+		<div class="buy-band">
+			<h2>准备好上架你的正式内容</h2>
+			<p>把示例文案替换成真实商品信息后，这个框架就可以直接进入上线联调。</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#">立即购买</a>
+				<a class="btn" style="border:1px solid var(--line);" href="../../main.html">返回产品集合</a>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		SnuffBottle Framework Demo · Inspired by product storytelling layout patterns.
+	</footer>
+</body>
+</html>
