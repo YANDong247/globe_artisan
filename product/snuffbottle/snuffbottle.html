@@ -196,7 +196,7 @@
 			display: grid;
 			grid-auto-flow: column;
 			grid-auto-columns: clamp(300px, 40vw, 440px);
-			gap: 14px;
+			gap: 7px;
 			overflow-x: auto;
 			scroll-snap-type: x mandatory;
 			padding-bottom: 8px;
@@ -214,7 +214,7 @@
 		.h-slide {
 			scroll-snap-align: start;
 			aspect-ratio: 4 / 6;
-			border-radius: 24px;
+			border-radius: 0;
 			overflow: hidden;
 			position: relative;
 			background: #0f1115;
@@ -241,33 +241,53 @@
 		}
 
 		.h-slide-media.s2 {
+			background-color: #111318;
 			background-image:
 				linear-gradient(150deg, rgba(8, 10, 15, 0.2), rgba(8, 10, 15, 0.5)),
-				linear-gradient(120deg, #4f5467, #7f584a 55%, #1f2531);
+				url("pic/观音001.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.h-slide-media.s3 {
+			background-color: #111318;
 			background-image:
 				linear-gradient(150deg, rgba(8, 10, 15, 0.14), rgba(8, 10, 15, 0.52)),
-				linear-gradient(120deg, #3f5d52, #83695e 60%, #1d212d);
+				url("pic/黛玉葬花001.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.h-slide-media.s4 {
+			background-color: #111318;
 			background-image:
 				linear-gradient(150deg, rgba(8, 10, 15, 0.16), rgba(8, 10, 15, 0.5)),
-				linear-gradient(120deg, #6b4e55, #2e3644 58%, #151924);
+				url("pic/彩瓶001.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.h-slide-media.s5 {
+			background-color: #111318;
 			background-image:
 				linear-gradient(150deg, rgba(8, 10, 15, 0.14), rgba(8, 10, 15, 0.52)),
-				linear-gradient(120deg, #415a6a, #6d6550 60%, #18202c);
+				url("pic/彩瓶002.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.h-slide-media.s6 {
+			background-color: #111318;
 			background-image:
 				linear-gradient(150deg, rgba(8, 10, 15, 0.2), rgba(8, 10, 15, 0.54)),
-				linear-gradient(120deg, #5f6a47, #5a4558 58%, #171b26);
+				url("pic/彩瓶003.01.jpg");
+			background-size: contain, contain;
+			background-position: center center, center center;
+			background-repeat: no-repeat, no-repeat;
 		}
 
 		.h-slide-caption {
@@ -422,7 +442,7 @@
 		</div>
 	</header>
 
-	<nav class="sub-nav" aria-label="Section navigation">
+	<!-- <nav class="sub-nav" aria-label="Section navigation">
 		<ul>
 			<li><a href="#overview">概览</a></li>
 			<li><a href="#design">设计</a></li>
@@ -432,8 +452,8 @@
 			<li><a href="#faq">问答</a></li>
 			<li><a href="#buy">选购</a></li>
 		</ul>
-	</nav>
-
+	</nav> -->
+<!-- 
 	<section class="hero" id="overview">
 		<div class="hero-wrap">
 			<p class="hero-kicker">Snuff Bottle Pro</p>
@@ -445,12 +465,12 @@
 			</div>
 			<div class="device-mock" aria-hidden="true"></div>
 		</div>
-	</section>
+	</section> -->
 
 	<section class="section" id="design">
 		<div class="section-head">
-			<p>Design</p>
-			<h2>分区讲述产品价值</h2>
+			<p>新品上市</p>
+			<!-- <h2>分区讲述产品价值</h2> -->
 		</div>
 		<div class="h-scroll" aria-label="横向图片展示">
 			<article class="h-slide">
@@ -459,49 +479,49 @@
 			</article>
 			<article class="h-slide">
 				<div class="h-slide-media s2"></div>
-				<p class="h-slide-caption">横划图 02 · 局部细节与工艺层次</p>
+				<p class="h-slide-caption">童子拜观音</p>
 			</article>
 			<article class="h-slide">
 				<div class="h-slide-media s3"></div>
-				<p class="h-slide-caption">横划图 03 · 手持比例与场景展示</p>
+				<p class="h-slide-caption">黛玉葬花</p>
 			</article>
 			<article class="h-slide">
 				<div class="h-slide-media s4"></div>
-				<p class="h-slide-caption">横划图 04 · 纹理特写与明暗关系</p>
+				<p class="h-slide-caption">梅花彩瓶</p>
 			</article>
 			<article class="h-slide">
 				<div class="h-slide-media s5"></div>
-				<p class="h-slide-caption">横划图 05 · 侧面轮廓与比例表达</p>
+				<p class="h-slide-caption">梅花彩瓶</p>
 			</article>
 			<article class="h-slide">
 				<div class="h-slide-media s6"></div>
-				<p class="h-slide-caption">横划图 06 · 成套陈列与场景氛围</p>
+				<p class="h-slide-caption">梅花彩瓶</p>
 			</article>
 		</div>
 	</section>
 
-	<!-- <section class="section" id="camera">
+	<section class="section" id="camera">
 		<div class="section-head">
-			<p>Visual</p>
-			<h2>多卡片细分能力点</h2>
+			<p>鼻烟壶 馆藏</p>
+			<!-- <h2>多卡片细分能力点</h2> -->
 		</div>
 		<div class="feature-grid">
-			<article class="card span-4">
-				<h3>细节近拍</h3>
-				<p>对应苹果页面里的功能点小节，可替换为核雕细节、纹理、落刀痕迹。</p>
+			<article class="card dark span-4">
+				<h3>水晶内画</h3>
+				<!-- <p>对应苹果页面里的功能点小节，可替换为核雕细节、纹理、落刀痕迹。</p> -->
 			</article>
 			<article class="card dark span-4">
-				<h3>色泽表现</h3>
-				<p>突出在不同光线下的颜色层次。</p>
+				<h3>琉璃彩瓶</h3>
+				<!-- <p>突出在不同光线下的颜色层次。</p> -->
 			</article>
-			<article class="card span-4">
-				<h3>手持比例</h3>
-				<p>展示真实尺寸观感，降低用户决策成本。</p>
+			<article class="card dark span-4">
+				<h3>清风古瓶</h3>
+				<!-- <p>展示真实尺寸观感，降低用户决策成本。</p> -->
 			</article>
 		</div>
 	</section>
 
-	<section class="section specs" id="specs">
+	<!-- <section class="section specs" id="specs">
 		<div class="section-head">
 			<p>Specs</p>
 			<h2>参数框架</h2>
