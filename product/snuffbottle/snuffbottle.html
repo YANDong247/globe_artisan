@@ -58,9 +58,9 @@
 
 		.nav-inner {
 			height: 100%;
-			max-width: var(--max);
+			max-width: none;
 			margin: 0 auto;
-			padding: 0 18px;
+			padding: 0;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -166,13 +166,13 @@
 		}
 
 		.section {
-			max-width: var(--max);
+			max-width: none;
 			margin: 0 auto;
-			padding: 78px 18px;
+			padding: 2px 0;
 		}
 
 		.section-head {
-			margin-bottom: 28px;
+			margin-bottom: 8px;
 		}
 
 		.section-head p {
@@ -189,7 +189,7 @@
 		.feature-grid {
 			display: grid;
 			grid-template-columns: repeat(12, minmax(0, 1fr));
-			gap: 14px;
+			gap: 4px;
 		}
 
 		.h-scroll {
@@ -314,6 +314,23 @@
 			min-height: 240px;
 		}
 
+		#showcase {
+			margin-bottom: 20px; /* 数值越大，间隔越宽，按需改：30/40/50px */
+		}
+
+		#showcase .section-head p {
+			padding-left: 1em;
+		}
+
+		#storehouse .card {
+			border-radius: 0;
+			padding-top: 8px;    /* 卡片上方空白 */
+  			padding-bottom: 8px; /* 卡片下方空白 */
+		}
+
+		#storehouse .section-head p {
+			padding-left: 1em;
+		}
 		.card h3 {
 			font-size: clamp(1.1rem, 2.4vw, 1.7rem);
 			letter-spacing: -0.02em;
@@ -453,23 +470,10 @@
 			<li><a href="#buy">选购</a></li>
 		</ul>
 	</nav> -->
-<!-- 
-	<section class="hero" id="overview">
-		<div class="hero-wrap">
-			<p class="hero-kicker">Snuff Bottle Pro</p>
-			<h1>一眼入心的器物美学</h1>
-			<p>这是参考苹果产品页信息节奏搭建的框架页。你可以在此直接替换图片、文案和参数，快速进入正式设计阶段。</p>
-			<div class="hero-actions">
-				<a class="btn btn-primary" href="#buy">立即选购</a>
-				<a class="btn btn-ghost" href="#design">了解设计</a>
-			</div>
-			<div class="device-mock" aria-hidden="true"></div>
-		</div>
-	</section> -->
 
-	<section class="section" id="design">
+	<section class="section" id="showcase">
 		<div class="section-head">
-			<p>新品上市</p>
+			<p>新品展示</p>
 			<!-- <h2>分区讲述产品价值</h2> -->
 		</div>
 		<div class="h-scroll" aria-label="横向图片展示">
@@ -500,9 +504,9 @@
 		</div>
 	</section>
 
-	<section class="section" id="camera">
+	<section class="section" id="storehouse">
 		<div class="section-head">
-			<p>鼻烟壶 馆藏</p>
+			<p>私人收藏</p>
 			<!-- <h2>多卡片细分能力点</h2> -->
 		</div>
 		<div class="feature-grid">
@@ -521,72 +525,7 @@
 		</div>
 	</section>
 
-	<!-- <section class="section specs" id="specs">
-		<div class="section-head">
-			<p>Specs</p>
-			<h2>参数框架</h2>
-		</div>
-		<table class="spec-table">
-			<tr>
-				<th>名称</th>
-				<td>轩墨藏珍 01（示例）</td>
-			</tr>
-			<tr>
-				<th>尺寸</th>
-				<td>高 58 mm / 宽 26 mm / 重 42 g</td>
-			</tr>
-			<tr>
-				<th>材质</th>
-				<td>示例材质 A + 示例材质 B</td>
-			</tr>
-			<tr>
-				<th>工艺</th>
-				<td>手工雕刻、细磨抛光、封蜡保养</td>
-			</tr>
-			<tr>
-				<th>包装</th>
-				<td>收藏盒、证书、保养说明卡</td>
-			</tr>
-		</table>
-	</section>
-
-	<section class="section" id="performance">
-		<div class="section-head">
-			<p>Story</p>
-			<h2>延展叙事区</h2>
-		</div>
-		<div class="feature-grid">
-			<article class="card dark span-8">
-				<h3>品牌故事长段位</h3>
-				<p>这里可以放你最核心的一段品牌陈述，建议 90 到 140 字。</p>
-			</article>
-			<article class="card span-4">
-				<h3>保养建议</h3>
-				<p>避免暴晒，保持干燥，定期轻拭。</p>
-			</article>
-		</div>
-	</section>
-
-	<section class="section faq" id="faq">
-		<div class="section-head">
-			<p>FAQ</p>
-			<h2>常见问题框架</h2>
-		</div>
-		<details>
-			<summary>是否支持定制？</summary>
-			<p>这里填写你的真实定制流程、周期和限制条件。</p>
-		</details>
-		<details>
-			<summary>发货与售后规则？</summary>
-			<p>这里填写发货时间、物流范围、签收与售后说明。</p>
-		</details>
-		<details>
-			<summary>如何判断是否适合收藏？</summary>
-			<p>这里填写选购建议，比如题材、尺寸、预算和个人偏好。</p>
-		</details>
-	</section> -->
-
-	<section class="section" id="buy">
+	<!-- <section class="section" id="buy">
 		<div class="buy-band">
 			<h2>准备好上架你的正式内容</h2>
 			<p>把示例文案替换成真实商品信息后，这个框架就可以直接进入上线联调。</p>
@@ -595,7 +534,7 @@
 				<a class="btn" style="border:1px solid var(--line);" href="../../main.html">返回产品集合</a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<footer>
 		SnuffBottle Framework Demo · Inspired by product storytelling layout patterns.
